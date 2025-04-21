@@ -1,9 +1,9 @@
 // src/pages/Home.jsx
 
 import React from 'react';
-import ParallaxMountains from '../components/mine-background.jsx'; // Adjust path if needed
-import Stars from '../components/stars.jsx';
-import AnimatedImage from '../components/minesweeper-title.jsx';
+import ParallaxMountains from '../components/loader-components/mine-background.jsx'; // Adjust path if needed
+import Stars from '../components/loader-components/stars.jsx';
+import AnimatedImage from '../components/loader-components/minesweeper-title.jsx';
 
 const Loader = () => {
   return (

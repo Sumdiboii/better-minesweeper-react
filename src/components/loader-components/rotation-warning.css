@@ -1,0 +1,16 @@
+.rotate-warning-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rotate-warning-image {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    transform: translateX(-10px); /* Move 20px to the left */
+  }
+  
