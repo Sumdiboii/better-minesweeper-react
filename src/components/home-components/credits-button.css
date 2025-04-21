@@ -1,0 +1,50 @@
+/* From Uiverse.io by vinodjangid07 */ 
+.credit-button {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    
+    
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    
+  }
+  .bar {
+    width: 80%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 2px;
+  }
+  .bar::before {
+    content: "";
+    width: 4px;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #ffff;
+    transition: all 0.3s;
+    
+  }
+  .bar1::before {
+    transform: translateX(-6px);
+  }
+  .bar2::before {
+    transform: translateX(6px);
+  }
+  .credit-button:hover .bar1::before {
+    transform: translateX(6px);
+  }
+  .credit-button:hover .bar2::before {
+    transform: translateX(-6px);
+  }
+  

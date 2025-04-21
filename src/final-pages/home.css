@@ -1,0 +1,143 @@
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    
+    display: flex;
+    align-items: center;      /* Vertical centering */
+    justify-content: center;  /* Horizontal centering */
+  }
+  
+  /* Container holding both panels */
+  .split-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    
+    gap: 10px;
+  }
+  
+  /* Panels */
+  .left-panel{
+    flex: 2;
+    
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+  }
+  
+  .left-panel {
+    
+    display: flex;
+    flex-direction: column;
+    
+    color: white;
+    flex: 1;
+  }
+  
+  .left-top {
+    flex: 8; /* 90% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-left: 5px;
+  }
+  
+  .left-top img{
+    scale: 1.05;
+    
+  }
+
+  .left-bottom {
+    flex: 2; /* 10% */
+    margin-top: 10px; /* Adds a vertical gap between top and bottom sections */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .left-bottom {
+    display: flex; /* Align the children horizontally */
+    width: fit-content; /* Ensure it takes the full width of its parent */
+   
+    gap: 40px;
+  }
+  
+  .container-left, .container-right {
+    
+    height: fit-content; /* Optional: you can specify the height, or it will stretch based on content */
+  }
+  
+  .container-left {
+    background-color: transparent; /* Example background for the left container */
+    width: 40%;
+  }
+  
+  .container-right {
+    background-color: transparent; /* Example background for the right container */
+    width:60%;
+    border: 1px solid #ffff;
+    border-radius: 10px;
+  }
+  
+   
+  .right-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+  }
+  
+  .right-panel {
+    display: flex;
+    flex-direction: column; /* stacks children vertically */
+    gap: 30px;              /* spacing between each container */
+    padding: 10px;
+  }
+  
+  .container-1, .container-2, .container-3 {
+    width: 80%;
+    height: 30%;
+  } 
+  .container-1 {
+    background-color: #ca2222;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .container-2 {
+    background-color: #3f2121;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .container-3 {
+    background-color: #169b1c;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  
+  /* Responsive stacking on smaller screens */
+  @media (max-width: 768px) {
+    .split-container {
+      flex-direction: column;
+    }
+  }
+  

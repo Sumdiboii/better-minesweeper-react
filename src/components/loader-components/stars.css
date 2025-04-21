@@ -8,6 +8,7 @@
   background: #100f25; /* Night sky color */
   overflow-x: hidden;
   z-index: 0;  /* Set stars behind mountains and canvas */
+  pointer-events: none; /* so it doesn’t block interactions */
 }
 
 /* Style for each star */
