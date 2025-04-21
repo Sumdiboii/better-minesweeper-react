@@ -5,7 +5,7 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
-    
+    margin-inline: 4px;
     display: flex;
     align-items: center;      /* Vertical centering */
     justify-content: center;  /* Horizontal centering */
@@ -104,32 +104,28 @@
   .right-panel {
     display: flex;
     flex-direction: column; /* stacks children vertically */
-    gap: 30px;              /* spacing between each container */
+    gap: 40px;              /* spacing between each container */
     padding: 10px;
   }
   
   .container-1, .container-2, .container-3 {
-    width: 80%;
+    width: 85%;
     height: 30%;
   } 
   .container-1 {
-    background-color: #ca2222;
-    padding: 20px;
-    border: 1px solid #ccc;
+    background-color: transparent;
     border-radius: 8px;
   }
 
   .container-2 {
-    background-color: #3f2121;
-    padding: 20px;
-    border: 1px solid #ccc;
+    background-color: transparent;
+    
     border-radius: 8px;
   }
 
   .container-3 {
-    background-color: #169b1c;
-    padding: 20px;
-    border: 1px solid #ccc;
+    background-color: transparent;
+    
     border-radius: 8px;
   }
   

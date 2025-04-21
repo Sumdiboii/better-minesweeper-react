@@ -1,0 +1,49 @@
+.bg {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .main-settings-box {
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 10; /* Higher than stars */
+  background-color: transparent;
+  gap:20px;
+  border: solid 1px red;
+  }
+  
+  .settings-top {
+    flex: 0 0 10%; /* Fixed 15% height */
+    background-color: transparent; /* Example background */
+  }
+  
+  .settings-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+               /* Optional spacing */
+    height: auto;               /* Adapts to content */
+    width: 100%;
+    background-color: transparent;     /* Optional */
+  }
+  
+  .settings-top img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    scale: 0.7;
+    padding-top: 10px;
+  }
+  
+  .settings-bottom {
+    flex: 0 0 90%; /* Fixed 85% height */
+    border: solid 1px red;
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+  }

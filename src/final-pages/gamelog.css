@@ -1,0 +1,85 @@
+.gb {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .main-gamelog-box {
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 10; /* Higher than stars */
+  background-color: transparent;
+  gap:20px;
+  border: solid 1px red;
+  }
+  
+  .gamelog-top {
+    flex: 0 0 10%; /* Fixed 15% height */
+    background-color: transparent; /* Example background */
+  }
+  
+  .gamelog-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+               /* Optional spacing */
+    height: auto;               /* Adapts to content */
+    width: 100%;
+    background-color: transparent;     /* Optional */
+  }
+  
+  .gamelog-top img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    scale: 0.7;
+    padding-top: 10px;
+  }
+  
+  .gamelog-bottom {
+    flex: 1; /* Fill remaining space */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid red;
+    box-sizing: border-box;
+  }
+  
+  .game-activity {
+    flex: 1.5; /* Takes equal space as analysis unless specified */
+    min-width: auto;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .game-analysis {
+    flex: 1; /* Slightly larger for more detailed view */
+    min-width: auto;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .analysis-title{
+    flex: 1; /* Takes equal space as analysis unless specified */
+    min-width: auto;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .analysis-section{
+    flex: 9; /* Takes equal space as analysis unless specified */
+    min-width: auto;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+  }

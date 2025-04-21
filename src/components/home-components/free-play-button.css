@@ -1,0 +1,44 @@
+.fpb-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #f8f8f8 40%, #07630c 40%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.fpb-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.fpb-left {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+
+.fpb-right {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.fpb-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  scale: 0.8;
+}

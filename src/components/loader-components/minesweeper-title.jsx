@@ -57,7 +57,7 @@ const AnimatedImage = () => {
           className="animated-image-wrapper"
           initial={{ opacity: 0, transform: 'translateY(-600px)' }}
           animate={{
-            transform: ['translateY(-600px)', 'translateY(-30px)', 'translateY(-30px)', 'translateY(-600px)'],
+            transform: ['translateY(-600px)', 'translateY(-10px)', 'translateY(-10px)', 'translateY(-600px)'],
             opacity: [0, 1, 1, 0],
           }}
           transition={{

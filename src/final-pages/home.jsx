@@ -3,6 +3,9 @@ import Stars from '../components/loader-components/stars';
 import SettingsButton from '../components/home-components/settings-button';
 import './Home.css'; // Make sure to import your CSS
 import Credits from '../components/home-components/credits-button';
+import UniqueButton from '../components/home-components/free-play-button';
+import TimeModeButton from '../components/home-components/time-play-button';
+import MultiplayerButton from './online-mode';
 
 const Home = () => {
   return (
@@ -32,9 +35,9 @@ const Home = () => {
 
         </div>
         <div className="right-panel">
-  <div className="container-1">Free Play</div>
-  <div className="container-2">Time Battle</div>
-  <div className="container-3">Multiplayer</div>
+  <div className="container-1"><UniqueButton /></div>
+  <div className="container-2"><TimeModeButton /></div>
+  <div className="container-3"><MultiplayerButton /></div>
 </div>
 
       </div>
