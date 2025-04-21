@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;
+  position: fixed;
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+}
+
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  html, body {
+    overflow: hidden !important; /* Ensure no scrolling on smaller screens */
+    height: 100%;
+  }
+
+  .home-container {
+    height: 100vh;
+    overflow: hidden;
+  }
+}

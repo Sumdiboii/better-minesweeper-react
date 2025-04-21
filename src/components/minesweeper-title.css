@@ -1,0 +1,83 @@
+.flex-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: aqua;
+    z-index: 10;
+  }
+  
+  .left-pane {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .right-pane {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 10; /* Above canvas and mountain div */
+  }
+  
+  .animated-image-wrapper {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 11; /* Ensure it stays on top */
+  }
+  
+  
+  .animated-image {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    z-index: 12; /* Highest, just to be safe */
+    height: auto;
+    left: 30px;
+    border-radius: 20px;
+    display: block;
+    opacity: 1;
+    text-shadow:
+      0 0 5px white,
+      0 0 10px white,
+      0 0 20px white;
+    background-color: transparent;
+    
+  }
+  
+  .plane-image {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    z-index: 999;
+    pointer-events: none;
+  }
+  
+  /* Medium screens (e.g., tablets) */
+@media (max-width: 1024px) {
+    .animated-image {
+      max-width: 600px;
+    }
+  }
+  
+  /* Small screens (e.g., phones) */
+  @media (max-width: 768px) {
+    .animated-image {
+      max-width: 400px;
+    }
+  }
+  
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    .animated-image {
+      max-width: 350px;
+    }
+  }

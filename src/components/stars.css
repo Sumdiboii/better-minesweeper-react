@@ -1,0 +1,56 @@
+/* Set up the background */
+.stars-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  /* Star background takes up the top 70% of the screen */
+  background: #100f25; /* Night sky color */
+  overflow-x: hidden;
+  z-index: 0;  /* Set stars behind mountains and canvas */
+}
+
+/* Style for each star */
+.star {
+  position: absolute;  /* Change from fixed to absolute for better control */
+  background-color: #fff; /* White color for stars */
+  border-radius: 50%;
+  width: 2px;
+  height: 2px;
+  opacity: 0.7; /* Stars' opacity */
+  animation: sparkle 1.5s infinite, move-left 30s linear infinite;
+}
+
+/* Keyframe for sparkle effect */
+@keyframes sparkle {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Keyframe for stars moving left across the sky */
+@keyframes move-left {
+  0% {
+    transform: translateX(10vw);  /* Start from the right side (offscreen) */
+  }
+  100% {
+    transform: translateX(-10vw);  /* Move to the left side (offscreen) */
+  }
+}
+
+/* If you're using a canvas element for mountains, make sure it's on top */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;  /* Ensure canvas (mountains) is above stars */
+}
