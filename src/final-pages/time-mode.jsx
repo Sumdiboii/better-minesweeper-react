@@ -8,6 +8,7 @@ import './time-mode.css'; // Add style if you want
 import TCLarge from '../components/timecontrol components/lrg-board-tc';
 import TCMed from '../components/timecontrol components/med-board-tc';
 import TCSmall from '../components/timecontrol components/small-board-tc';
+import BackTC from '../components/timecontrol components/backTC';
 
 
 const TimeMode = () => {
@@ -16,7 +17,11 @@ const TimeMode = () => {
     <Stars />
 
     <div className="main-cont1-tm">
-        <div className="top-cont1-tm"><img src='assets/timecontrol.png'></img></div>
+        <div className="top-cont1-tm">
+          <div className="back-btn-wrapper">
+            <BackTC />
+          </div>
+          <img src='assets/timecontrol.png'></img></div>
         <div className="bottom-cont1-tm">
             <div className="leftcontbot-tm">
                 <div className="choose-mode-box-tm"><img src='assets/pickboard.png'></img></div>

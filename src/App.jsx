@@ -11,6 +11,7 @@ import FPSmallBoard from './components/freeplay components/small-board-fp.jsx';
 import FPMedBoard from './components/freeplay components/med-board-fp.jsx';
 import TimeMode from './final-pages/time-mode.jsx';
 import MultiplayerM from './final-pages/multiplayer-mode.jsx';
+import BackFP from './components/freeplay components/backFP.jsx';
 
 const App = () => {
   const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
@@ -85,6 +86,7 @@ const App = () => {
         <Route path="/time-mode" element={<TimeMode />} />
         <Route path="/multiplayer-mode" element={<MultiplayerM />} />
 
+        <Route path="/home" element={<Home />} /> 
         <Route path="/settings" element={<Settings />} />
         <Route path="/gamelog" element={<GameLog />} />
         

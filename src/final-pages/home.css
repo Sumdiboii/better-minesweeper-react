@@ -18,7 +18,7 @@
     width: 100%;
     max-width: 1200px;
     height: 80vh;
-    
+    margin-inline: 2%;
     gap: 10px;
   }
   
@@ -69,23 +69,37 @@
   .left-bottom {
     display: flex; /* Align the children horizontally */
     width: fit-content; /* Ensure it takes the full width of its parent */
-   
-    gap: 40px;
+    margin-inline-start: 3%;
+    gap: 45px;
   }
   
-  .container-left, .container-right {
+  .container-left, .container-mid1, .container-mid2, .container-right {
     
     height: fit-content; /* Optional: you can specify the height, or it will stretch based on content */
   }
   
   .container-left {
     background-color: transparent; /* Example background for the left container */
-    width: 40%;
+    width: 39%;
+  }
+  
+  .container-mid1 {
+    background-color: transparent; /* Example background for the right container */
+    width:38%;
+    border: 1px solid #ffff;
+    border-radius: 10px;
+  }
+
+  .container-mid2 {
+    background-color: transparent; /* Example background for the right container */
+    width:39%;
+    border: 1px solid #ffff;
+    border-radius: 10px;
   }
   
   .container-right {
     background-color: transparent; /* Example background for the right container */
-    width:60%;
+    width:39%;
     border: 1px solid #ffff;
     border-radius: 10px;
   }

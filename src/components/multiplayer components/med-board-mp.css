@@ -1,0 +1,49 @@
+.mp-container-med {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #f8f8f8 40%, #2f1e94 40%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+    cursor: pointer;
+  }
+  
+  .mp-container-med:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mp-left-med {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .mp-title-med {
+    font-size: 1.5rem;
+    color: #171235;
+    font-weight: bold;
+  }
+  
+  .mp-right-med {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .mp-image-med {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    scale: 0.8;
+  }
+  

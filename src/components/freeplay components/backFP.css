@@ -1,0 +1,29 @@
+.triangle-button-wrapper-fp {
+    width: 3vw; /* Smaller width */
+    height: 3vw; /* Smaller height */
+    min-width: 20px; /* Smaller min-width */
+    min-height: 20px; /* Smaller min-height */
+    max-width: 60px; /* Smaller max-width */
+    max-height: 60px; /* Smaller max-height */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Position it at the extreme left */
+   
+  }
+  
+  .triangle-left-fp {
+    width: 0;
+    height: 0;
+    border-top: 1.5vw solid transparent; /* Smaller triangle */
+    border-bottom: 1.5vw solid transparent; /* Smaller triangle */
+    border-right: 3vw solid #043805; /* Color of triangle */
+    transition: border-right-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .triangle-left-fp:hover {
+    border-right-color: #043805;
+    transform: scale(1.1);
+  }
+  

@@ -33,6 +33,17 @@
     transition: width 0.3s ease;
   }
   
+  
+.back-btn-wrapper-tc {
+  position: relative; /* now relative to .top-cont1 */
+  margin-right: auto; /* pushes the button to the left edge */
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
   /* ---------- BOTTOM SECTION ---------- */
   .bottom-cont1-tm {
     flex: 1;

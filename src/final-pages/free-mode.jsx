@@ -7,6 +7,7 @@ import './free-mode.css'; // Add style if you want
 import FPSmallBoard from '../components/freeplay components/small-board-fp';
 import FPMedBoard from '../components/freeplay components/med-board-fp';
 import FPLrgBoard from '../components/freeplay components/lrg-board-fp';
+import BackFP from '../components/freeplay components/backFP';
 
 
 const FreeMode = () => {
@@ -15,7 +16,11 @@ const FreeMode = () => {
     <Stars />
 
     <div className="main-cont1">
-        <div className="top-cont1"><img src='assets/freeplay.png'></img></div>
+        <div className="top-cont1">
+          <div className="back-btn-wrapper">
+          <BackFP />
+          </div>
+          <img src='assets/freeplay.png'></img></div>
         <div className="bottom-cont1">
             <div className="leftcontbot">
                 <div className="choose-mode-box"><img src='assets/pickboard.png'></img></div>

@@ -6,6 +6,8 @@ import Credits from '../components/home-components/credits-button';
 import UniqueButton from '../components/home-components/free-play-button';
 import TimeModeButton from '../components/home-components/time-play-button';
 import MultiplayerButton from '../components/home-components/online-mode';
+import ProfileButton from '../components/home-components/profile-button';
+import Testimonials from '../components/home-components/testimonials';
 
 const Home = () => {
   return (
@@ -28,9 +30,15 @@ const Home = () => {
   <div className="container-left">
     <SettingsButton />
   </div>
-  <div className="container-right">
+  <div className="container-mid1">
     <Credits />
   </div>
+  <div className="container-mid2">
+    <ProfileButton />
+  </div>
+  <div className="container-right">
+    <Testimonials />
+    </div>
 </div>
 
         </div>
@@ -41,8 +49,6 @@ const Home = () => {
 </div>
 
       </div>
-
-      
     </div>
     </div>
   );
