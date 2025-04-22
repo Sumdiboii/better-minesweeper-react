@@ -1,0 +1,143 @@
+.main-cont1-tm {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px); /* Account for 20px top + bottom padding */
+    width: calc(100vw - 40px);  /* Account for 20px left + right padding */
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+    gap: 40px;
+    padding: 25px;
+    box-sizing: border-box;
+   
+  }
+  
+  /* ---------- TOP SECTION ---------- */
+  .top-cont1-tm {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    max-height: 20vh;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f8f8f8 40%, #981111 40%);
+  }
+  
+  .top-cont1-tm img {
+    width: 400px; /* or try smaller if needed */
+    height: auto;
+    object-fit: contain;
+    background-color: transparent;
+    transition: width 0.3s ease;
+  }
+  
+  /* ---------- BOTTOM SECTION ---------- */
+  .bottom-cont1-tm {
+    flex: 1;
+    background-color: transparent;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    border-radius: 10px;
+    min-height: 0;
+    overflow: hidden;
+  }
+  
+  /* ---------- LEFT & RIGHT CONTAINERS ---------- */
+  .leftcontbot-tm {
+    
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+  }
+  
+  .choose-mode-box-tm {
+    flex: 2;
+    background-color: #981111;
+    display: flex; /* 💥 THE MAGIC TOUCH */
+    border-bottom: 2px solid white;
+    align-items: center;
+    padding: 2px;
+    box-sizing: border-box;
+    max-height: 12vh;
+    justify-content: center;
+  }
+  
+  .choose-mode-box-tm img {
+    width: 400px; /* or try smaller if needed */
+    height: auto;
+    object-fit: contain;
+    
+    background-color: transparent;
+    transition: width 0.3s ease;
+  }
+  
+  .modebox-tm {
+    flex: 8;
+    background-color: transparent;
+    
+    display: flex;
+    flex-direction: row;
+    margin-inline: 25px;
+    gap: 25px;
+    overflow: hidden;
+  }
+  
+  .smallbox1-tm,
+  .medbox1-tm,
+  .bigbox1-tm {
+    flex: 1;
+    padding:25px;
+    margin-bottom: 2.3%;
+  }
+  
+  /* ---------- PAGE WRAPPER ---------- */
+  .free-tm {
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* ---------- MEDIA QUERY FOR SMALLER SCREENS ---------- */
+  @media screen and (max-width: 768px) {
+    
+  
+    .top-cont1-tm {
+      padding: 5px;
+    }
+  
+    .bottom-cont1-tm {
+      flex-direction: row;
+      gap: 20px;
+    }
+  
+    .leftcontbot-tm,
+    .rightcontbot-tm {
+      flex: 2 1 auto;
+    }
+  
+    .choose-mode-box-tm {
+      display:none;
+    }
+  
+    .modebox-tm {
+      flex-direction: column;
+      margin-inline: 0;
+    }
+  }
+  
+  @media screen and (max-width: 1028px) {
+    .top-cont1-tm img {
+      width: 270px;
+    }
+  
+    .choose-mode-box-tm img{
+      width:250px;
+    }
+  }
+  

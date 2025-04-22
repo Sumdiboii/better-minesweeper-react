@@ -11,6 +11,6 @@
     max-width: 95%;
     max-height: 95%;
     object-fit: contain;
-    transform: translateX(-10px); /* Move 20px to the left */
+    transform: translateX(4px); /* Move 20px to the left */
   }
   

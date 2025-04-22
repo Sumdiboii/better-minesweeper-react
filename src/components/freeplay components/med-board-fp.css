@@ -1,0 +1,46 @@
+.fpm-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 40%, #043805 40%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+    cursor: pointer;
+    
+  }
+  
+  .fpm-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fpm-left {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  
+  
+  .fpm-right {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .fpm-image {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    scale: 0.8;
+  }
+  

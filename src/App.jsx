@@ -7,6 +7,9 @@ import RotateWarning from './components/loader-components/rotation-warning.jsx';
 import Settings from './final-pages/settings'; // Adjust path as needed
 import './App.css';
 import GameLog from './final-pages/gamelog.jsx';
+import FPSmallBoard from './components/freeplay components/small-board-fp.jsx';
+import FPMedBoard from './components/freeplay components/med-board-fp.jsx';
+import TimeMode from './final-pages/time-mode.jsx';
 
 const App = () => {
   const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
@@ -78,8 +81,10 @@ const App = () => {
           }
         />
         <Route path="/free-mode" element={<FreeMode />} />
+        <Route path="/time-mode" element={<TimeMode />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/gamelog" element={<GameLog />} />
+        
 
       </Routes>
     </Router>
