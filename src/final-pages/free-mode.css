@@ -1,85 +1,147 @@
 .main-cont1 {
-    display: flex;
+  display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  height: calc(100vh - 40px); /* Account for 20px top + bottom padding */
+  width: calc(100vw - 40px);  /* Account for 20px left + right padding */
   position: relative;
-  z-index: 10; /* Higher than stars */
+  z-index: 10;
   background-color: transparent;
-  gap:20px;
-  border: solid 1px red;
-  }
+  gap: 30px;
+  padding: 15px;
+  box-sizing: border-box;
+ 
+}
+
+/* ---------- TOP SECTION ---------- */
+.top-cont1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  max-height: 20vh;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: linear-gradient(135deg, white 40%, #07630c 40%);
+}
+
+.top-cont1 img {
+  width: 400px; /* or try smaller if needed */
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+  transition: width 0.3s ease;
+}
+
+/* ---------- BOTTOM SECTION ---------- */
+.bottom-cont1 {
+  flex: 1;
+  background-color: #07630c;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  border-radius: 10px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ---------- LEFT & RIGHT CONTAINERS ---------- */
+.leftcontbot {
+  flex: 8;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.choose-mode-box {
+  flex: 2;
+  background-color: #07630c;
+  display: flex; /* 💥 THE MAGIC TOUCH */
   
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+  max-height: 10vh;
+  justify-content: center;
+}
+
+.choose-mode-box img {
+  width: 400px; /* or try smaller if needed */
+  height: auto;
+  object-fit: contain;
+  
+  background-color: transparent;
+  transition: width 0.3s ease;
+}
+
+.modebox {
+  flex: 8;
+  background-color: #07630c;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: row;
+  margin-inline: 20px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.smallbox1,
+.medbox1,
+.bigbox1 {
+  flex: 1;
+  border: 2px solid red;
+}
+
+.rightcontbot {
+  flex: 1;
+  background-color: #07630c;
+  overflow: auto;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.free {
+  min-height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ---------- MEDIA QUERY FOR SMALLER SCREENS ---------- */
+@media screen and (max-width: 768px) {
+  
+
   .top-cont1 {
-    flex: 0 0 10%; /* Fixed 15% height */
-    background-color: transparent; /* Example background */
+    padding: 5px;
   }
-  
-  .top-cont1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-               /* Optional spacing */
-    height: auto;               /* Adapts to content */
-    width: 100%;
-    background-color: transparent;     /* Optional */
-  }
-  
-  .top-cont1 img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    scale: 0.7;
-    padding-top: 10px;
-  }
-  
+
   .bottom-cont1 {
-    flex: 0 0 90%; /* Fixed 85% height */
-    border: solid 1px red;
-    display: flex;
-    flex-direction: row;
-    gap:30px;
-  }
-
-  .leftcontbot{
-    flex: 0 0 85%; /* Fixed 15% height */
-    border: solid 1px red;
-    display: flex;
-    flex-direction: column;
-    gap:30px;
-  }
-
-  .choose-mode-box{
-    flex: 0 0 15%; /* Fixed 15% height */
-    border: solid 1px red;
-  }
-
-  .modebox {
-    flex: 0 0 85%;
-    border: solid 1px red;
-    display: flex;
     flex-direction: row;
     gap: 20px;
   }
-  
-  .smallbox1,
-  .medbox1,
-  .bigbox1 {
-    flex: 1;
-    border: solid 1px red;
-  }
-  
 
-  .rightcontbot{
-    flex: 0 0 15%; /* Fixed 15% height */
-    border: solid 1px red;
+  .leftcontbot,
+  .rightcontbot {
+    flex: 2 1 auto;
   }
 
-  .free {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
+  .choose-mode-box {
+    display:none;
   }
-  
- 
+
+  .modebox {
+    flex-direction: column;
+    margin-inline: 0;
+  }
+}
+
+@media screen and (max-width: 1028px) {
+  .top-cont1 img {
+    width: 270px;
+  }
+
+  .choose-mode-box img{
+    width:250px;
+  }
+}

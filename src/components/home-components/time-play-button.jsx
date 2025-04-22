@@ -15,7 +15,7 @@ const TimeModeButton = () => {
         
       </div>
       <div className="tc-right">
-        <img src="assets/freeplay.png" alt="Time Mode" className="tc-image" />
+        <img src="assets/timecontrol.png" alt="Time Mode" className="tc-image" />
       </div>
     </div>
   );

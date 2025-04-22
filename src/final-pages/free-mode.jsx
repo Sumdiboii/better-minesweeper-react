@@ -14,12 +14,12 @@ const FreeMode = () => {
         <div className="top-cont1"><img src='assets/freeplay.png'></img></div>
         <div className="bottom-cont1">
             <div className="leftcontbot">
-                <div className="choose-mode-box"></div>
+                <div className="choose-mode-box"><img src='assets/pickboard.png'></img></div>
                 <div className="modebox">
                     <div className="smallbox1"></div>
                     <div className="medbox1"></div>
                     <div className="bigbox1"></div>
-                </div>
+                </div> 
             </div>
             <div className="rightcontbot"></div>
         </div>

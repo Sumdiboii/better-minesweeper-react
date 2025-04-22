@@ -5,7 +5,7 @@ import './Home.css'; // Make sure to import your CSS
 import Credits from '../components/home-components/credits-button';
 import UniqueButton from '../components/home-components/free-play-button';
 import TimeModeButton from '../components/home-components/time-play-button';
-import MultiplayerButton from './online-mode';
+import MultiplayerButton from '../components/home-components/online-mode';
 
 const Home = () => {
   return (

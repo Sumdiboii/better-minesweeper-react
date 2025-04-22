@@ -15,7 +15,7 @@ const MultiplayerButton = () => {
         
       </div>
       <div className="mp-right">
-        <img src="assets/freeplay.png" alt="Multiplayer Mode" className="mp-image" />
+        <img src="assets/multiplayer.png" alt="Multiplayer Mode" className="mp-image" />
       </div>
     </div>
   );
