@@ -15,6 +15,7 @@ import BanterLoader from './components/loader-components/mid-use-loader.jsx';
 
 import './App.css';
 import TestimonialsPage from './final-pages/testimonials-page.jsx';
+import FreePlay from './final-pages/board-free-play.jsx';
 
 // ✅ Component to handle route loading animation
 const RouteWrapper = ({ children }) => {
@@ -117,6 +118,7 @@ const App = () => {
                 <Route path="/med-board" element={<FPMedBoard />} />
                 <Route path="/backfp" element={<BackFP />} />
                 <Route path="/testimonials-page" element={<TestimonialsPage />} />
+                <Route path="/board-free-play" element={<FreePlay />} />
               </Routes>
             </RouteWrapper>
           }

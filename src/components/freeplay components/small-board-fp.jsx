@@ -6,7 +6,7 @@ const FPSmallBoard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/fp-small-game');
+    navigate('/board-free-play');
   };
 
   return (

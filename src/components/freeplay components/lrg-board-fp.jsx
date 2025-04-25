@@ -6,7 +6,7 @@ const FPLrgBoard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/fp-lrg-game');
+    navigate('/board-free-play');
   };
 
   return (

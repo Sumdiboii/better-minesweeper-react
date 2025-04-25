@@ -1,0 +1,148 @@
+
+.navbar-gb {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: transparent;
+    position: fixed;
+   
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-gb img {
+    object-fit: contain;
+    height: 100%;
+    scale: 0.7;
+    margin-right: 0px;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* SIDEBAR */
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 600px;
+    background-color: #000;
+    color: white;
+    padding-inline: 60px;
+    padding-block: 50px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1100;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.side-panel.open {
+    transform: translateX(0);
+}
+
+.quick-access-control-box{
+    flex:3;
+    background-color: blue;
+    
+    width:100%;
+    height:100%;
+}
+
+
+.music-player{
+    flex:1;
+    background-color: blue;
+    width:100%;
+    height:100%;
+}
+
+
+.game-controls{
+    flex:2;
+    background-color: blue;
+    width:100%;
+    height:100%;
+}
+
+
+.board-switch-quit{
+    flex:2;
+    background-color: blue;
+    width:100%;
+    height:100%;
+}
+
+
+.close-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Responsive sidebar (Full screen on mobile) */
+@media (max-width: 1024px) {
+    .side-panel {
+        width: 100vw;
+    }
+}
+
+/* MAIN GAME */
+.freeplay-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 60px; /* navbar offset */
+    padding-bottom: 50px;
+}
+
+.game-board {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: red;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+/* BOTTOM BAR */
+.end-bar-fpb {
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    
+    color: white;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+   
+.end-bar-fpb img {
+    object-fit: contain;
+    height: 100%;
+    scale: 0.6;
+    margin-right: 0px;
+}
+
+  

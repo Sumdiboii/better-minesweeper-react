@@ -6,7 +6,7 @@ const FPMedBoard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/fp-med-game');
+    navigate('/board-free-play');
   };
 
   return (
