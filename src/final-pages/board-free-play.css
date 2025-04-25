@@ -63,12 +63,7 @@
 }
 
 
-.music-player{
-    flex:1;
-    background-color: blue;
-    width:100%;
-    height:100%;
-}
+
 
 
 .game-controls{
@@ -79,7 +74,7 @@
 }
 
 
-.board-switch-quit{
+.focus-mode{
     flex:2;
     background-color: blue;
     width:100%;
@@ -108,16 +103,54 @@
 /* MAIN GAME */
 .freeplay-container {
     display: flex;
+    flex-direction: row;
+    gap:20px;
     height: 100vh;
     width: 100vw;
     padding-top: 60px; /* navbar offset */
     padding-bottom: 50px;
+    padding-inline: 30px;
+}
+.game-info-box{
+    flex:2;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding:10px;
+    z-index: 999;
+    text-align: center;
 }
 
+.timer{
+    flex:1;
+    background-color: blueviolet;
+}
+
+.shortcutkeys{
+    flex:2;
+    background-color: blueviolet;
+}
+
+.music-player{
+    flex:1;
+    background-color: blueviolet;
+}
+.board-switch-fpb-game{
+    flex:2;
+    background-color: blueviolet;
+}
+
+.new-quit-button{
+    flex:1;
+    background-color: blueviolet;
+}
+
+
 .game-board {
-    flex-grow: 1;
+    flex-grow: 6;
     padding: 40px;
-    background-color: red;
+    background-color: blue;
     position: relative;
     z-index: 1;
     overflow-y: auto;
