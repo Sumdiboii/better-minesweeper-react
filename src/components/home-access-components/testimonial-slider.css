@@ -1,0 +1,47 @@
+/* InfiniScrollerSP.css */
+.scroller-wrapper-sp {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.scroller-row-sp {
+  display: flex;
+  width: max-content;
+  animation: scroll-sp 10s linear infinite;
+}
+
+.reverse-scroll-sp {
+  animation-direction: reverse;
+}
+
+.scroller-box-sp1,.scroller-box-sp2,.scroller-box-sp3,.scroller-box-sp4,.scroller-box-sp5,.scroller-box-sp6
+,.scroller-box-sp7,.scroller-box-sp8,.scroller-box-sp9,.scroller-box-sp10,.scroller-box-sp11,.scroller-box-sp12 {
+  min-width: 200px;
+  height: 110px;
+  margin: 0 10px;
+  background-color: rgb(126, 126, 126);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Keyframes */
+@keyframes scroll-sp {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

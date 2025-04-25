@@ -14,6 +14,7 @@ import BackFP from './components/freeplay components/backFP.jsx';
 import BanterLoader from './components/loader-components/mid-use-loader.jsx';
 
 import './App.css';
+import TestimonialsPage from './final-pages/testimonials-page.jsx';
 
 // ✅ Component to handle route loading animation
 const RouteWrapper = ({ children }) => {
@@ -22,7 +23,7 @@ const RouteWrapper = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 800); // Adjust duration if needed
+    const timer = setTimeout(() => setLoading(false), 1000); // Adjust duration if needed
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -115,6 +116,7 @@ const App = () => {
                 <Route path="/small-board" element={<FPSmallBoard />} />
                 <Route path="/med-board" element={<FPMedBoard />} />
                 <Route path="/backfp" element={<BackFP />} />
+                <Route path="/testimonials-page" element={<TestimonialsPage />} />
               </Routes>
             </RouteWrapper>
           }
