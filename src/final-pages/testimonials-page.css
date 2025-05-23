@@ -22,7 +22,7 @@
   max-height: 20vh;
   border: 2px solid #ffffff;
   border-radius: 10px;
-  background: linear-gradient(135deg, white 40%, #212121 40%);
+  background: linear-gradient(135deg, white 40%, #631704 40%);
 }
 
 .top-cont1-tms img {
@@ -84,7 +84,7 @@
   height: 100%;
   flex: 3;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #631704 ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +106,7 @@
   width:100%;
   flex:1;
   border-radius: 10px;
-  background-color: #212121;
+  background-color: #631704 ;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -121,7 +121,7 @@
   
   max-width: 100%; /* ✅ Prevents overflow width-wise */
   overflow: hidden; /* ✅ Stops content from expanding container */
-  background-color: #212121;
+  background-color: #631704 ;
   border: 2px solid white;
 }
 
@@ -130,7 +130,7 @@
   max-width: 100%; /* ✅ Prevents overflow width-wise */
   overflow: hidden; /* ✅ Stops content from expanding container */
   border:2px solid white;
-  background-color: #212121;
+  background-color: #631704 ;
   gap:5px;
   display: flex;
   flex-direction: column;

@@ -15,7 +15,7 @@ const TCMed = () => {
         
       </div>
       <div className="tc-right-med">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="tc-image-med" />
+        <img src="assets/medium-text-board.png" alt="Time Mode" className="tc-image-med" />
       </div>
     </div>
   );

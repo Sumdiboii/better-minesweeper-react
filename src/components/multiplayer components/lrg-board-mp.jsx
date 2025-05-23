@@ -15,7 +15,7 @@ const MPLarge = () => {
         
       </div>
       <div className="mp-right-lrg">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="mp-image-lrg" />
+        <img src="assets/large-text-board.png" alt="Time Mode" className="mp-image-lrg" />
       </div>
     </div>
   );

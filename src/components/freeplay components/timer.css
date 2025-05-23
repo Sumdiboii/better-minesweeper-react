@@ -1,0 +1,52 @@
+.timer-fp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  min-height: 48px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 40%, #043805 100%);
+  border: 2px solid #fff;
+  box-shadow: 0 4px 16px rgba(4, 56, 5, 0.12), 0 1.5px 6px rgba(0,0,0,0.08);
+  color: #043805;
+  font-size: 2rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 auto;
+  transition: background 0.3s, color 0.3s;
+  user-select: none;
+  gap: 0.7rem;
+}
+
+.timer-fp span[role="img"] {
+  font-size: 2.1rem;
+  margin-right: 0.3rem;
+  filter: drop-shadow(0 1px 2px #fff8);
+}
+
+.timer-icon-fp {
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-right: 0.3rem;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 2px #fff8);
+}
+
+@media (max-width: 600px) {
+  .timer-fp {
+    font-size: 1.2rem;
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0.3rem 0.7rem;
+  }
+  .timer-fp span[role="img"] {
+    font-size: 1.3rem;
+  }
+  .timer-icon-fp {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}

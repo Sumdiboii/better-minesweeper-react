@@ -15,7 +15,7 @@ const MPSmall = () => {
         
       </div>
       <div className="mp-right-small">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="mp-image-small" />
+        <img src="assets/small-text-board.png" alt="Time Mode" className="mp-image-small" />
       </div>
     </div>
   );

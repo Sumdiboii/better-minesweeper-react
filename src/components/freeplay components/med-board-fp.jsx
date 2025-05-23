@@ -15,7 +15,7 @@ const FPMedBoard = () => {
         
       </div>
       <div className="fpm-right">
-        <img src="assets/freeplay.png" alt="Free Play" className="fpm-image" />
+        <img src="assets/medium-text-board.png" alt="Medium Board" className="fpm-image" />
       </div>
     </div>
   );

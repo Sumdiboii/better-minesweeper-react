@@ -15,7 +15,7 @@ const TCSmall = () => {
         
       </div>
       <div className="tc-right-small">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="tc-image-small" />
+        <img src="assets/small-text-board.png" alt="Small Board" className="tc-image-small" />
       </div>
     </div>
   );

@@ -148,6 +148,7 @@
   @media (max-width: 768px) {
     .split-container {
       flex-direction: column;
+      overflow-y: auto;
     }
   }
   

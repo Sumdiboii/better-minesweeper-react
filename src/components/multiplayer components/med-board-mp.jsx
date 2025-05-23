@@ -15,7 +15,7 @@ const MPMed = () => {
         
       </div>
       <div className="mp-right-med">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="mp-image-med" />
+        <img src="assets/medium-text-board.png" alt="Time Mode" className="mp-image-med" />
       </div>
     </div>
   );

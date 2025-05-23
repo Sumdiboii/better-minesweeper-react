@@ -15,7 +15,7 @@ const TCLarge = () => {
         
       </div>
       <div className="tc-right-lrg">
-        <img src="assets/timecontrol.png" alt="Time Mode" className="tc-image-lrg" />
+        <img src="assets/large-text-board.png" alt="Time Mode" className="tc-image-lrg" />
       </div>
     </div>
   );

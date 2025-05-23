@@ -15,7 +15,7 @@ const FPLrgBoard = () => {
         
       </div>
       <div className="fpl-right">
-        <img src="assets/freeplay.png" alt="Free Play" className="fpl-image" />
+        <img src="assets/large-text-board.png" alt="Free Play" className="fpl-image" />
       </div>
     </div>
   );

@@ -139,6 +139,7 @@
     .modebox-mp {
       flex-direction: column;
       margin-inline: 0;
+      overflow-y: auto;
     }
   }
   

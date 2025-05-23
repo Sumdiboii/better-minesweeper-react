@@ -1,4 +1,3 @@
-
 .navbar-gb {
     height: 60px;
     width: 100vw;
@@ -124,17 +123,129 @@
 
 .timer{
     flex:1;
-    background-color: blueviolet;
+    background-color: transparent;
 }
 
-.shortcutkeys{
-    flex:2;
-    background-color: blueviolet;
+/* --- Freeplay Timer Themed Styling --- */
+.timer .timer-fp {
+  background: linear-gradient(135deg, #043805 80%, #021e0a 100%);
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(4, 56, 5, 0.12), 0 1.5px 6px rgba(0,0,0,0.08);
+  font-size: 2rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  min-width: 120px;
+  min-height: 48px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  margin: 0 auto;
+  transition: background 0.3s, color 0.3s;
+  user-select: none;
+  gap: 0.7rem;
+}
+
+.timer .timer-fp span[role="img"] {
+  font-size: 2.1rem;
+  margin-right: 0.3rem;
+  filter: drop-shadow(0 1px 2px #fff8);
+}
+
+@media (max-width: 600px) {
+  .timer .timer-fp {
+    font-size: 1.2rem;
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0.3rem 0.7rem;
+  }
+  .timer .timer-fp span[role="img"] {
+    font-size: 1.3rem;
+  }
+}
+
+.shortcutkeys {
+  flex: 2;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.shortcut-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 100%;
+}
+
+.shortcut-row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.themed-shortcut-btn {
+  background: linear-gradient(135deg, #043805 80%, #021e0a 100%);
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(4, 56, 5, 0.12), 0 1.5px 6px rgba(0,0,0,0.08);
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  min-width: 100px;
+  min-height: 38px;
+  padding: 0.4rem 1.1rem;
+  border-radius: 1.2rem;
+  margin: 0 auto;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themed-shortcut-btn:hover, .themed-shortcut-btn:focus {
+  background: #065c0a;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.themed-shortcut-btn img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.7em;
+  height: 1.7em;
+  max-width: 32px;
+  max-height: 32px;
+  margin: 0 0.2em 0 0;
+  object-fit: contain;
+  margin-left:18%;
+  scale:2;
 }
 
 .music-player{
     flex:1;
-    background-color: blueviolet;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 .board-switch-fpb-game{
     flex:2;
@@ -143,14 +254,14 @@
 
 .new-quit-button{
     flex:1;
-    background-color: blueviolet;
+    background-color: transparent;
 }
 
 
 .game-board {
     flex-grow: 6;
     padding: 40px;
-    background-color: blue;
+    background-color: blueviolet;
     position: relative;
     z-index: 1;
     overflow-y: auto;
@@ -178,4 +289,62 @@
     margin-right: 0px;
 }
 
-  
+.music-player .music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0.5rem 0;
+}
+.music-player .music-controls button {
+  background: linear-gradient(135deg, #043805 80%, #021e0a 100%);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(4,56,5,0.10);
+  transition: background 0.2s, transform 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.music-player .music-controls button:hover {
+  background: #065c0a;
+  transform: scale(1.08);
+}
+
+/* YouTube Player Responsive Styles */
+.youtube-player-wrapper {
+  width: 100%;
+  max-width: 320px;
+  min-width: 160px;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.youtube-player-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  min-height: 60px;
+  min-width: 160px;
+  background: #000;
+}
+@media (max-width: 600px) {
+  .youtube-player-wrapper {
+    max-width: 100vw;
+    min-width: 100px;
+    aspect-ratio: 16/9;
+  }
+  .youtube-player-wrapper iframe {
+    min-height: 40px;
+    min-width: 100px;
+  }
+}
+

@@ -15,7 +15,7 @@ const FPSmallBoard = () => {
         
       </div>
       <div className="fps-right">
-        <img src="assets/freeplay.png" alt="Free Play" className="fps-image" />
+        <img src="assets/small-text-board.png" alt="Small Board" className="fps-image" />
       </div>
     </div>
   );

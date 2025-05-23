@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     padding: 20px;
-    background-color: #111;
+    background-color: #631704 ;
     border-radius: 12px;
     
     box-sizing: border-box;
@@ -22,7 +22,7 @@
     border-radius: 8px;
     border:1px solid white;
     outline: none;
-    background-color: #222;
+    background-color: white;
     color: white;
     margin-bottom: 20px;
   }

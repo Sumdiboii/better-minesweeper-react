@@ -31,11 +31,13 @@
     flex: 6;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     padding: 1rem;
   }
   
   .fps-image {
+    bottom:0;
+    right:0;
     width: 100%;
     height: auto;
     max-height: 100%;
@@ -43,3 +45,5 @@
     scale: 0.8;
   }
   
+
+
