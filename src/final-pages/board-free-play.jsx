@@ -5,12 +5,19 @@ import MinesweeperBoardFP from '../components/freeplay components/minesweeper-bo
 import Timer from '../components/freeplay components/timer';
 import { useNavigate } from 'react-router-dom';
 
+// Board presets: [rows, cols, mines]
+const BOARD_PRESETS = [
+  { label: 'Small', rows: 9, cols: 9, mines: 10 },
+  { label: 'Medium', rows: 16, cols: 16, mines: 40 },
+  { label: 'Large', rows: 16, cols: 30, mines: 99 },
+];
 
 const FreePlay = () => {
   const navigate = useNavigate();
   const [isPanelOpen, setIsPanelOpen] = useState(false); // default to false
   const [timerRunning, setTimerRunning] = React.useState(false);
   const [gameReset, setGameReset] = React.useState(0);
+  const [boardPresetIdx, setBoardPresetIdx] = useState(0);
 
   const musicVideos = [
     'jfKfPfyJRdk', // Lofi Girl
@@ -49,6 +56,15 @@ const FreePlay = () => {
     }
   };
 
+  // Board size switch handler
+  const handleBoardSwitch = (idx) => {
+    setBoardPresetIdx(idx);
+    setGameReset((r) => r + 1);
+    setTimerRunning(false);
+  };
+
+  const { rows, cols, mines } = BOARD_PRESETS[boardPresetIdx];
+
   return (
     <div className="bg-fpb">
       <Stars />  
@@ -79,8 +95,8 @@ const FreePlay = () => {
                 <div className="shortcut-row">
                   <button className="themed-shortcut-btn" onClick={() => navigate('/home')} title="Quit to Home">
                     {/* Image placeholder for quit icon */}
-                    <img src="/assets/quit-text.png" alt="Quit" style={{width:'1.5em',height:'1.5em',marginRight:'0.5em'}} />
-                    
+                    {/* <img src="/assets/quit-text.png" alt="Quit" style={{width:'1.5em',height:'1.5em',marginRight:'0.5em'}} /> */}
+                    QUIT
                   </button>
                 </div>
               </div>
@@ -123,17 +139,37 @@ const FreePlay = () => {
                 ></iframe>
               </div>
             </div>
-            <div className="board-switch-fpb-game">board switch</div>
+            <div className="board-switch-fpb-game">
+              <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginBottom: '0.5rem' }}>
+                {BOARD_PRESETS.map((preset, idx) => (
+                  <button
+                    key={preset.label}
+                    className={`themed-shortcut-btn${boardPresetIdx === idx ? ' active' : ''}`}
+                    style={{ fontWeight: boardPresetIdx === idx ? 'bold' : undefined }}
+                    onClick={() => handleBoardSwitch(idx)}
+                  >
+                    {preset.label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="new-quit-button">
               <button className="themed-shortcut-btn" onClick={handleNewGame} title="Start a New Game">
                 {/* You can use a refresh/restart icon here if you have one, or just text */}
-                <span role="img" aria-label="New Game" style={{marginRight:'0.5em',fontSize:'1.3em'}}></span>
+                <span role="img" aria-label="New Game" style={{marginRight:'0.5em',fontSize:'1.3em'}}>🔄</span>
                 New Game
               </button>
             </div>
         </div>
         <div className="game-board">
-          <MinesweeperBoardFP onFirstClick={handleFirstClick} gameReset={gameReset} onGameOver={handleGameOver} />
+          <MinesweeperBoardFP
+            onFirstClick={handleFirstClick}
+            gameReset={gameReset}
+            onGameOver={handleGameOver}
+            rows={rows}
+            cols={cols}
+            mines={mines}
+          />
         </div>
       </div>
 

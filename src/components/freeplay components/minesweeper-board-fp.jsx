@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './minesweeper-board-fp.css';
 
-// Board settings (can be made dynamic later)
-const ROWS = 9;
-const COLS = 9;
-const MINES = 10;
-
 function createEmptyBoard(rows, cols) {
   return Array.from({ length: rows }, () =>
     Array.from({ length: cols }, () => ({
@@ -71,21 +66,21 @@ function revealCell(board, r, c) {
   }
 }
 
-const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver }) => {
+const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, cols = 9, mines = 10 }) => {
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
   const [firstClick, setFirstClick] = useState(false);
 
   useEffect(() => {
-    const newBoard = createEmptyBoard(ROWS, COLS);
-    placeMines(newBoard, MINES);
+    const newBoard = createEmptyBoard(rows, cols);
+    placeMines(newBoard, mines);
     calculateAdjacents(newBoard);
     setBoard(newBoard);
     setGameOver(false);
     setWin(false);
     setFirstClick(false);
-  }, [gameReset]);
+  }, [gameReset, rows, cols, mines]);
 
   useEffect(() => {
     if ((gameOver || win) && onGameOver) {
@@ -100,6 +95,42 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver }) => {
       setFirstClick(true);
       if (onFirstClick) onFirstClick();
     }
+    // If clicking a revealed number, try to auto-reveal adjacents (chording)
+    if (board[r][c].revealed && board[r][c].adjacent > 0 && !board[r][c].mine) {
+      const flaggedCount = [-1,0,1].flatMap(dr => [-1,0,1].map(dc => {
+        if (dr === 0 && dc === 0) return 0;
+        const nr = r + dr, nc = c + dc;
+        if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+          return board[nr][nc].flagged ? 1 : 0;
+        }
+        return 0;
+      })).reduce((a,b) => a+b, 0);
+      if (flaggedCount === board[r][c].adjacent) {
+        const newBoard = board.map(row => row.map(cell => ({ ...cell })));
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            if (dr === 0 && dc === 0) continue;
+            const nr = r + dr, nc = c + dc;
+            if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+              if (!newBoard[nr][nc].revealed && !newBoard[nr][nc].flagged) {
+                revealCell(newBoard, nr, nc);
+              }
+            }
+          }
+        }
+        setBoard(newBoard);
+        // Check win
+        const allSafeRevealed = newBoard.flat().filter(cell => !cell.mine).every(cell => cell.revealed);
+        if (allSafeRevealed) setWin(true);
+        // If a mine is revealed, game over
+        if (newBoard.flat().some(cell => cell.revealed && cell.mine)) {
+          setGameOver(true);
+          setBoard(newBoard.map(row => row.map(cell => ({ ...cell, revealed: true }))));
+        }
+        return;
+      }
+    }
+    // Normal reveal logic
     if (board[r][c].mine) {
       setGameOver(true);
       const revealAll = board.map(row => row.map(cell => ({ ...cell, revealed: true })));
@@ -122,6 +153,60 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver }) => {
     setBoard(newBoard);
   };
 
+  // Helper: check if all adjacent cells are revealed or flagged
+  const areAllAdjacentsFlaggedOrRevealed = (r, c, board) => {
+    const rows = board.length;
+    const cols = board[0].length;
+    for (let dr = -1; dr <= 1; dr++) {
+      for (let dc = -1; dc <= 1; dc++) {
+        if (dr === 0 && dc === 0) continue;
+        const nr = r + dr, nc = c + dc;
+        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+          if (!board[nr][nc].revealed && !board[nr][nc].flagged) {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  };
+
+  // New: handle double click or click on revealed number to auto-reveal adjacents
+  const handleCellDoubleClick = (r, c) => {
+    if (!board[r][c].revealed || board[r][c].mine || board[r][c].adjacent === 0) return;
+    const flaggedCount = [-1,0,1].flatMap(dr => [-1,0,1].map(dc => {
+      if (dr === 0 && dc === 0) return 0;
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+        return board[nr][nc].flagged ? 1 : 0;
+      }
+      return 0;
+    })).reduce((a,b) => a+b, 0);
+    if (flaggedCount === board[r][c].adjacent) {
+      const newBoard = board.map(row => row.map(cell => ({ ...cell })));
+      for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+          if (dr === 0 && dc === 0) continue;
+          const nr = r + dr, nc = c + dc;
+          if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+            if (!newBoard[nr][nc].revealed && !newBoard[nr][nc].flagged) {
+              revealCell(newBoard, nr, nc);
+            }
+          }
+        }
+      }
+      setBoard(newBoard);
+      // Check win
+      const allSafeRevealed = newBoard.flat().filter(cell => !cell.mine).every(cell => cell.revealed);
+      if (allSafeRevealed) setWin(true);
+      // If a mine is revealed, game over
+      if (newBoard.flat().some(cell => cell.revealed && cell.mine)) {
+        setGameOver(true);
+        setBoard(newBoard.map(row => row.map(cell => ({ ...cell, revealed: true }))));
+      }
+    }
+  };
+
   return (
     <div className="minesweeper-board-fp">
       {gameOver && <div className="game-status">Game Over!</div>}
@@ -135,6 +220,7 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver }) => {
                 key={c}
                 onClick={() => handleCellClick(r, c)}
                 onContextMenu={e => handleRightClick(e, r, c)}
+                onDoubleClick={() => handleCellDoubleClick(r, c)}
               >
                 {cell.revealed && cell.mine && '💣'}
                 {cell.revealed && !cell.mine && cell.adjacent > 0 && cell.adjacent}
