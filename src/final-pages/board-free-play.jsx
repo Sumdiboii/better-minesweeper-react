@@ -18,6 +18,7 @@ const FreePlay = () => {
   const [timerRunning, setTimerRunning] = React.useState(false);
   const [gameReset, setGameReset] = React.useState(0);
   const [boardPresetIdx, setBoardPresetIdx] = useState(0);
+  const [proMode, setProMode] = useState(false);
 
   const musicVideos = [
     'jfKfPfyJRdk', // Lofi Girl
@@ -102,7 +103,13 @@ const FreePlay = () => {
               </div>
               <div className="shortcut-col">
                 <div className="shortcut-row">
-                  <button className="themed-shortcut-btn">Shortcut 2</button>
+                  <button
+                    className={`themed-shortcut-btn pro-mode-btn${proMode ? ' active' : ''}`}
+                    onClick={() => setProMode((v) => !v)}
+                    title="Toggle Pro Mode (Flags Invisible)"
+                  >
+                    PRO MODE
+                  </button>
                 </div>
               </div>
             </div>
@@ -169,6 +176,7 @@ const FreePlay = () => {
             rows={rows}
             cols={cols}
             mines={mines}
+            proMode={proMode}
           />
         </div>
       </div>

@@ -300,19 +300,20 @@
 
 .game-board {
     flex-grow: 6;
-    padding: 40px;
-    background-color: blueviolet;
+    padding: 0;
+    background-color: #000;
     position: relative;
     z-index: 1;
     overflow-y: auto;
     overflow-x: auto;
-    /* Allow scrolling for large boards */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: stretch;
     height: 100%;
     min-height: 0;
     min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .minesweeper-board-fp {
@@ -443,5 +444,11 @@
     min-height: 40px;
     min-width: 100px;
   }
+}
+
+.pro-mode-btn.active {
+  background: linear-gradient(135deg, #b80000 90%, #7a0000 100%);
+  color: #fff;
+  border-color: #fff;
 }
 

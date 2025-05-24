@@ -66,11 +66,12 @@ function revealCell(board, r, c) {
   }
 }
 
-const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, cols = 9, mines = 10 }) => {
+const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, cols = 9, mines = 10, proMode = false }) => {
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
   const [firstClick, setFirstClick] = useState(false);
+  const [firstClickPos, setFirstClickPos] = useState(null);
 
   useEffect(() => {
     const newBoard = createEmptyBoard(rows, cols);
@@ -80,6 +81,7 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, col
     setGameOver(false);
     setWin(false);
     setFirstClick(false);
+    setFirstClickPos(null);
   }, [gameReset, rows, cols, mines]);
 
   useEffect(() => {
@@ -88,12 +90,52 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, col
     }
   }, [gameOver, win, onGameOver]);
 
+  // Helper to get all neighbors (including self)
+  const getNeighbors = (r, c, board) => {
+    const neighbors = [];
+    for (let dr = -1; dr <= 1; dr++) {
+      for (let dc = -1; dc <= 1; dc++) {
+        const nr = r + dr, nc = c + dc;
+        if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+          neighbors.push([nr, nc]);
+        }
+      }
+    }
+    return neighbors;
+  };
+
+  // Place mines, avoiding the first click and its neighbors
+  const placeMinesSafe = (rows, cols, mines, safeR, safeC) => {
+    const board = createEmptyBoard(rows, cols);
+    const forbidden = new Set(getNeighbors(safeR, safeC, board).map(([r, c]) => r + "," + c));
+    let placed = 0;
+    while (placed < mines) {
+      const r = Math.floor(Math.random() * rows);
+      const c = Math.floor(Math.random() * cols);
+      if (!board[r][c].mine && !forbidden.has(r + "," + c)) {
+        board[r][c].mine = true;
+        placed++;
+      }
+    }
+    calculateAdjacents(board);
+    return board;
+  };
+
   const handleCellClick = (r, c) => {
     if (gameOver || win) return;
     if (board[r][c].flagged) return;
     if (!firstClick) {
       setFirstClick(true);
+      setFirstClickPos([r, c]);
       if (onFirstClick) onFirstClick();
+      // Regenerate board so first click is always safe and reveals a cluster
+      const safeBoard = placeMinesSafe(rows, cols, mines, r, c);
+      revealCell(safeBoard, r, c);
+      setBoard(safeBoard);
+      // Check win
+      const allSafeRevealed = safeBoard.flat().filter(cell => !cell.mine).every(cell => cell.revealed);
+      if (allSafeRevealed) setWin(true);
+      return;
     }
     // If clicking a revealed number, try to auto-reveal adjacents (chording)
     if (board[r][c].revealed && board[r][c].adjacent > 0 && !board[r][c].mine) {
@@ -208,15 +250,13 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, col
   };
 
   return (
-    <div className="minesweeper-board-fp">
-      {gameOver && <div className="game-status">Game Over!</div>}
-      {win && <div className="game-status">You Win!</div>}
+    <div className={`minesweeper-board-fp${rows === 9 && cols === 9 ? ' small-board' : ''}`}>
       <div className="board-grid">
         {board.map((row, r) => (
           <div className="board-row" key={r}>
             {row.map((cell, c) => (
               <div
-                className={`cell${cell.revealed ? ' revealed' : ''}${cell.flagged ? ' flagged' : ''}`}
+                className={`cell${cell.revealed ? ' revealed' : ''}${cell.flagged ? ' flagged' : ''}${proMode ? ' pro-mode' : ''}`}
                 key={c}
                 onClick={() => handleCellClick(r, c)}
                 onContextMenu={e => handleRightClick(e, r, c)}
@@ -224,7 +264,7 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, col
               >
                 {cell.revealed && cell.mine && '💣'}
                 {cell.revealed && !cell.mine && cell.adjacent > 0 && cell.adjacent}
-                {!cell.revealed && cell.flagged && '🚩'}
+                {!cell.revealed && cell.flagged && !proMode && '🚩'}
               </div>
             ))}
           </div>
