@@ -340,7 +340,8 @@
 .game-board {
     flex-grow: 6;
     padding: 0;
-    background-color: transparent;
+    background-color: #181c22; /* Default dark shade */
+    border-radius:10px;
     position: relative;
     z-index: 1;
     overflow-y: auto;
@@ -353,6 +354,23 @@
     min-width: 0;
     width: 100%;
     box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+.violet-theme .game-board {
+  background: linear-gradient(135deg, #181c22 80%, #232b5d 100%);
+}
+
+.fire-theme .game-board {
+  background: linear-gradient(135deg, #2a1206 80%, #8a2a0b 100%);
+}
+
+.cshop-theme .game-board {
+  background: linear-gradient(135deg, #4d4200 60%, #b39c00 100%);
+}
+
+.snow-theme .game-board {
+  background: linear-gradient(135deg, #b3c6d6 80%, #5a6d7a 100%);
 }
 
 .minesweeper-board-fp {
@@ -613,5 +631,137 @@
 /* Hide text for background buttons only (cell-2 to cell-6) */
 .cell-2, .cell-3, .cell-4, .cell-5, .cell-6 {
   color: transparent !important;
+}
+
+.violet-theme .themed-shortcut-btn,
+.violet-theme .themed-shortcut-btn.pro-mode-btn,
+.violet-theme .board-switch-fpb-game .themed-shortcut-btn,
+.violet-theme .new-quit-button .themed-shortcut-btn {
+  background: linear-gradient(135deg, #232b5d 80%, #6d4aff 100%) !important;
+  color: #fff !important;
+  border: 2px solid #3ad1ff;
+  box-shadow: 0 2px 12px #232b5d60;
+  text-shadow: 0 0 6px #3ad1ff88;
+}
+
+.violet-theme .themed-shortcut-btn.active,
+.violet-theme .pro-mode-btn.active {
+  background: linear-gradient(135deg, #6d4aff 80%, #3ad1ff 100%) !important;
+  color: #fff !important;
+  border: 2px solid #3ad1ff;
+  text-shadow: 0 0 8px #3ad1ffcc;
+}
+
+.violet-theme .timer .timer-fp {
+  background: linear-gradient(135deg, #232b5d 80%, #6d4aff 100%) !important;
+  color: #fff !important;
+  border: 2px solid #3ad1ff;
+  box-shadow: 0 4px 16px #232b5d60, 0 1.5px 6px #3ad1ff50;
+  text-shadow: 0 0 6px #3ad1ff88;
+}
+
+.violet-theme .shortcutkeys,
+.violet-theme .game-controls,
+.violet-theme .focus-mode {
+  background: transparent !important;
+}
+
+.fire-theme .themed-shortcut-btn,
+.fire-theme .themed-shortcut-btn.pro-mode-btn,
+.fire-theme .board-switch-fpb-game .themed-shortcut-btn,
+.fire-theme .new-quit-button .themed-shortcut-btn {
+  background: linear-gradient(135deg, #8a2a0b 80%, #d35400 100%) !important;
+  color: #fff !important;
+  border: 2px solid #ffd36e;
+  box-shadow: 0 2px 12px #8a2a0b60;
+  text-shadow: 0 0 6px #ffd36e88;
+}
+
+.fire-theme .themed-shortcut-btn.active,
+.fire-theme .pro-mode-btn.active {
+  background: linear-gradient(135deg, #d35400 80%, #ffd36e 100%) !important;
+  color: #fff !important;
+  border: 2px solid #ffd36e;
+  text-shadow: 0 0 8px #ffd36ecc;
+}
+
+.fire-theme .timer .timer-fp {
+  background: linear-gradient(135deg, #8a2a0b 80%, #d35400 100%) !important;
+  color: #fff !important;
+  border: 2px solid #ffd36e;
+  box-shadow: 0 4px 16px #8a2a0b60, 0 1.5px 6px #ffd36e50;
+  text-shadow: 0 0 6px #ffd36e88;
+}
+
+.fire-theme .shortcutkeys,
+.fire-theme .game-controls,
+.fire-theme .focus-mode {
+  background: transparent !important;
+}
+
+.cshop-theme .themed-shortcut-btn,
+.cshop-theme .themed-shortcut-btn.pro-mode-btn,
+.cshop-theme .board-switch-fpb-game .themed-shortcut-btn,
+.cshop-theme .new-quit-button .themed-shortcut-btn {
+  background: linear-gradient(135deg, #a08a00 80%, #ffe066 100%) !important;
+  color: #2d2500 !important;
+  border: 2px solid #ffe066;
+  box-shadow: 0 2px 12px #ffe06655;
+  text-shadow: 0 0 6px #ffe06688;
+}
+
+.cshop-theme .themed-shortcut-btn.active,
+.cshop-theme .pro-mode-btn.active {
+  background: linear-gradient(135deg, #ffe066 80%, #fff7b2 100%) !important;
+  color: #2d2500 !important;
+  border: 2px solid #ffe066;
+  text-shadow: 0 0 8px #ffe066cc;
+}
+
+.cshop-theme .timer .timer-fp {
+  background: linear-gradient(135deg, #a08a00 80%, #ffe066 100%) !important;
+  color: #2d2500 !important;
+  border: 2px solid #ffe066;
+  box-shadow: 0 4px 16px #ffe06655, 0 1.5px 6px #ffe06633;
+  text-shadow: 0 0 6px #ffe06688;
+}
+
+.cshop-theme .shortcutkeys,
+.cshop-theme .game-controls,
+.cshop-theme .focus-mode {
+  background: transparent !important;
+}
+
+.snow-theme .themed-shortcut-btn,
+.snow-theme .themed-shortcut-btn.pro-mode-btn,
+.snow-theme .board-switch-fpb-game .themed-shortcut-btn,
+.snow-theme .new-quit-button .themed-shortcut-btn {
+  background: linear-gradient(135deg, #e3e9f7 80%, #b3d8f7 100%) !important;
+  color: #1a2a3a !important;
+  border: 2px solid #b3d8f7;
+  box-shadow: 0 2px 14px #b3d8f799;
+  text-shadow: 0 0 6px #ffffff88;
+}
+
+.snow-theme .themed-shortcut-btn.active,
+.snow-theme .pro-mode-btn.active {
+  background: linear-gradient(135deg, #b3d8f7 80%, #ffffff 100%) !important;
+  color: #1a2a3a !important;
+  border: 2px solid #b3d8f7;
+  text-shadow: 0 0 8px #b3d8f7cc;
+}
+
+.snow-theme .timer .timer-fp {
+  background: linear-gradient(135deg, #e3e9f7 80%, #b3d8f7 100%) !important;
+  color: #1a2a3a !important;
+  border: 2px solid #b3d8f7;
+  box-shadow: 0 4px 16px #b3d8f799, 0 1.5px 6px #ffffff33;
+  text-shadow: 0 0 6px #ffffff88;
+}
+
+.snow-theme .shortcutkeys,
+.snow-theme .game-controls,
+.snow-theme .focus-mode {
+  background: transparent !important;
 }
 

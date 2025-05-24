@@ -136,7 +136,7 @@ const FreePlay = () => {
           <div className="screenshot-loading-text">Screenshot saved!</div>
         </div>
       )}
-      <div className={`bg-fpb${activeBgIdx ? ' ' + BACKGROUNDS[activeBgIdx] : ''}`}> {/* Add background class */}
+      <div className={`bg-fpb${activeBgIdx ? ' ' + BACKGROUNDS[activeBgIdx] : ''}${activeBgIdx === 2 ? ' violet-theme' : ''}${activeBgIdx === 3 ? ' fire-theme' : ''}${activeBgIdx === 4 ? ' cshop-theme' : ''}${activeBgIdx === 5 ? ' snow-theme' : ''}`}> {/* Add background and theme class */}
         {activeBgIdx === 1 && <Stars />}
         {/* Navbar */}
         <div className="navbar-gb">
