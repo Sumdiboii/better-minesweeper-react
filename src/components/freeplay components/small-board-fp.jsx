@@ -6,7 +6,8 @@ const FPSmallBoard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/board-free-play');
+    // Open board-free-play with small board preset
+    navigate('/board-free-play?board=small');
   };
 
   return (

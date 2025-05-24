@@ -6,7 +6,8 @@ const FPLrgBoard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/board-free-play');
+    // Open board-free-play with large board preset
+    navigate('/board-free-play?board=large');
   };
 
   return (

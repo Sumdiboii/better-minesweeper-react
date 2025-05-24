@@ -1,49 +1,230 @@
-.bg {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .main-settings-box {
-    display: flex;
+.main-cont1-settings {
+  display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  height: calc(100vh - 40px); /* Account for 20px top + bottom padding */
+  width: calc(100vw - 40px);  /* Account for 20px left + right padding */
   position: relative;
-  z-index: 10; /* Higher than stars */
+  z-index: 10;
   background-color: transparent;
-  gap:20px;
-  border: solid 1px red;
-  }
+  gap: 40px;
+  padding: 25px;
+  box-sizing: border-box;
+ 
+}
+
+/* ---------- TOP SECTION ---------- */
+.top-cont1-settings {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  max-height: 20vh;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: linear-gradient(135deg, white 40%, #083c55 40%);
+}
+
+.top-cont1-settings img {
+  width: 230px; /* or try smaller if needed */
+  margin-right: 3%;
+  height: auto;
+  padding: 4px;
+  box-sizing: border-box;
+  object-fit: contain;
+  background-color: transparent;
+  transition: width 0.3s ease;
+}
+
+.back-btn-wrapper-settings {
+  position: relative; /* now relative to .top-cont1 */
+  margin-right: auto; /* pushes the button to the left edge */
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
+/* ---------- BOTTOM SECTION ---------- */
+.bottom-cont1-settings {
+  flex: 1;
+  background-color: transparent;
+ 
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  border-radius: 10px;
+  min-height: 0;
+  overflow: hidden;
+  justify-content: space-between;
+  padding:2%;
+}
+
+
+.leftcontbox-settings,
+.rightcontbox-settings, .midcontbox-settings {
+  color: white;
+  padding: 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.leftcontbox-settings{
+  flex:1;
+  background-color: transparent;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.pic-box-settings {
+  width: 100%;
+  height: 100%;
+  flex: 3;
+  border-radius: 10px;
+  background-color: #083c55 ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pic-box-settings img {
+  width: 100%;         /* Let the image fill the container */
+  height: 100%;        /* Allow it to grow/shrink with the box */
+  object-fit: contain; /* Maintain aspect ratio */
+  padding: 6%;
+  border-radius: 10px;
+  border:2px solid white;
+}
+
+
+
+.socials-box-sp-settings{
+  width:100%;
+  flex:1;
+  border-radius: 10px;
+  background-color: #083c55 ;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap:15%;
+  justify-content: center;
+  border:2px solid white;
+}
+
+.rightcontbox-settings{
+  flex: 3;
   
-  .settings-top {
-    flex: 0 0 10%; /* Fixed 15% height */
-    background-color: transparent; /* Example background */
-  }
   
-  .settings-top{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-               /* Optional spacing */
-    height: auto;               /* Adapts to content */
-    width: 100%;
-    background-color: transparent;     /* Optional */
-  }
+  max-width: 100%; /* ✅ Prevents overflow width-wise */
+  overflow: hidden; /* ✅ Stops content from expanding container */
+  background-color: #083c55 ;
+  border: 2px solid white;
+}
+
+.midcontbox-settings{
+  flex:1;
+  max-width: 100%; /* ✅ Prevents overflow width-wise */
+  overflow: hidden; /* ✅ Stops content from expanding container */
+  border:2px solid white;
+  background-color: #083c55 ;
+  gap:5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.midcontbox-settings-top{
+flex:1;
+background-color: transparent;
+
+height:100%;
+justify-content: center;
+align-items: center;
+display: flex;
+}
+
+.midcontbox-settings-top img{
   
-  .settings-top img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    scale: 0.7;
-    padding-top: 10px;
-  }
+  width:100%;
+  height:auto;
+  object-fit: contain;
   
-  .settings-bottom {
-    flex: 0 0 90%; /* Fixed 85% height */
-    border: solid 1px red;
-    display: flex;
+  scale:0.8;
+  
+  }
+
+
+.midcontbox-settings-bottom{
+flex:5;
+background-color: transparent;
+width:100%;
+
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.settings-box {
+  min-height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ---------- MEDIA QUERY FOR SMALLER SCREENS ---------- */
+@media screen and (max-width: 1024px) {
+  
+
+  .top-cont1-settings {
+    padding: 10px;
+  }
+
+  .midcontbox-settings-top {
+    display:none;
+    
+  }
+
+  .bottom-cont1-settings {
     flex-direction: row;
-    gap:30px;
+    gap: 20px;
   }
+
+  .leftcontbot-settings
+  {
+    flex: 2 1 auto;
+  }
+
+ 
+}
+
+@media screen and (max-width: 1028px) {
+  .top-cont1-settings img {
+    width: 270px;
+  }
+
+}
+@media screen and (max-width: 1024px) {
+  .leftcontbox-settings {
+    display: none;
+  }
+
+  .rightcontbox-settings {
+    flex: 1 !important; /* stretch and shine */
+  }
+}
+
+
+
+.icon-link-settings {
+  color: rgb(255, 255, 255);
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link-settings:hover {
+  transform: scale(1.3);
+  color: #c6c6c6; /* optional hover color */
+}

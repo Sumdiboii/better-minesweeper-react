@@ -3,18 +3,19 @@ import './board-free-play.css';
 import Stars from '../components/loader-components/stars';
 import MinesweeperBoardFP from '../components/freeplay components/minesweeper-board-fp';
 import Timer from '../components/freeplay components/timer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import html2canvas from '../../node_modules/html2canvas/dist/html2canvas.esm.js';
 
 // Board presets: [rows, cols, mines]
 const BOARD_PRESETS = [
   { label: 'Small', rows: 9, cols: 9, mines: 10 },
-  // Medium: 12 rows x 20 cols, 45 mines (fewer cells than large, more columns than rows)
-  { label: 'Medium', rows: 12, cols: 20, mines: 45 },
+  { label: 'Medium', rows: 14, cols: 20, mines: 52 }, // 2 more rows, adjust mines for balance
   { label: 'Large', rows: 16, cols: 30, mines: 99 },
 ];
 
 const FreePlay = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isPanelOpen, setIsPanelOpen] = useState(false); // default to false
   const [timerRunning, setTimerRunning] = React.useState(false);
   const [gameReset, setGameReset] = React.useState(0);
@@ -65,7 +66,36 @@ const FreePlay = () => {
     setTimerRunning(false);
   };
 
+  // Parse board type from query param
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const board = params.get('board');
+    if (board === 'small') setBoardPresetIdx(0);
+    else if (board === 'medium') setBoardPresetIdx(1);
+    else if (board === 'large') setBoardPresetIdx(2);
+  }, [location.search]);
+
   const { rows, cols, mines } = BOARD_PRESETS[boardPresetIdx];
+
+  // Add screenshot handler at the top level of FreePlay
+  function handleScreenshot() {
+    // Hide the side panel before taking the screenshot
+    const sidePanel = document.querySelector('.side-panel');
+    const gameScreen = document.querySelector('.bg-fpb');
+    if (!gameScreen) return;
+    let prevDisplay = '';
+    if (sidePanel) {
+      prevDisplay = sidePanel.style.display;
+      sidePanel.style.display = 'none';
+    }
+    html2canvas(gameScreen).then(canvas => {
+      if (sidePanel) sidePanel.style.display = prevDisplay;
+      const link = document.createElement('a');
+      link.download = 'minesweeper-game.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  }
 
   return (
     <div className="bg-fpb">
@@ -80,8 +110,16 @@ const FreePlay = () => {
       {/* Sidebar */}
       <div className={`side-panel ${isPanelOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={() => setIsPanelOpen(false)}>✖</button>
-        <div className="quick-access-control-box">quick-access-control-box ---dnd, silent, record, screenshot..</div>
-        
+        <div className="quick-access-control-box">
+          <div className="quick-access-grid">
+            <div className="quick-cell cell-1" onClick={handleScreenshot}>1 SS</div>
+            <div className="quick-cell cell-2">2</div>
+            <div className="quick-cell cell-3">3</div>
+            <div className="quick-cell cell-4">4</div>
+            <div className="quick-cell cell-5">5</div>
+            <div className="quick-cell cell-6">6</div>
+          </div>
+        </div>
         <div className="game-controls">game controls</div>
         <div className="focus-mode">focus mode full screen no animations just play tyrhard :0</div>
       </div>
