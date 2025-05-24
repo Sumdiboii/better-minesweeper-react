@@ -58,16 +58,77 @@
   background: #c8ffc8;
 }
 
-/* Make only the small board zoomed in */
+/* Only stretch for medium board */
+.minesweeper-board-fp.med-board .board-grid {
+  flex: 1 1 0;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+
+.minesweeper-board-fp.med-board .board-row {
+  flex: 1 1 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.minesweeper-board-fp.med-board .cell {
+  flex: 1 1 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  font-size: 1.13rem !important;
+  box-sizing: border-box;
+}
+
+/* Restore small and large board to original behavior */
 .minesweeper-board-fp.small-board .cell {
-  width: 50px !important;
-  height: 50px !important;
-  min-width: 50px !important;
-  min-height: 50px !important;
-  max-width: 50px !important;
-  max-height: 50px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
   font-size: 1.5rem !important;
   box-sizing: border-box;
+}
+
+.minesweeper-board-fp.lrg-board .cell {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  font-size: 1.13rem !important;
+  box-sizing: border-box;
+}
+
+.minesweeper-board-fp.small-board,
+.minesweeper-board-fp.med-board,
+.minesweeper-board-fp.lrg-board {
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* NEW: Ensure board stretches vertically to fill parent */
 }
 
 .minesweeper-board-fp.small-board {
@@ -77,8 +138,9 @@
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .minesweeper-board-fp.small-board .board-grid {
@@ -88,8 +150,9 @@
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .game-status {

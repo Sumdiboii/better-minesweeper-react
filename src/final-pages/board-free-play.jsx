@@ -8,7 +8,8 @@ import { useNavigate } from 'react-router-dom';
 // Board presets: [rows, cols, mines]
 const BOARD_PRESETS = [
   { label: 'Small', rows: 9, cols: 9, mines: 10 },
-  { label: 'Medium', rows: 16, cols: 16, mines: 40 },
+  // Medium: 12 rows x 20 cols, 45 mines (fewer cells than large, more columns than rows)
+  { label: 'Medium', rows: 12, cols: 20, mines: 45 },
   { label: 'Large', rows: 16, cols: 30, mines: 99 },
 ];
 

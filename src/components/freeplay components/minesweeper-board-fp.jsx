@@ -249,8 +249,14 @@ const MinesweeperBoardFP = ({ onFirstClick, gameReset, onGameOver, rows = 9, col
     }
   };
 
+  // Determine board size class
+  let boardSizeClass = '';
+  if (rows === 9 && cols === 9) boardSizeClass = 'small-board';
+  else if (rows === 16 && cols === 16) boardSizeClass = 'med-board';
+  else if (rows === 16 && cols === 30) boardSizeClass = 'lrg-board';
+
   return (
-    <div className={`minesweeper-board-fp${rows === 9 && cols === 9 ? ' small-board' : ''}`}>
+    <div className={`minesweeper-board-fp ${boardSizeClass}`}>
       <div className="board-grid">
         {board.map((row, r) => (
           <div className="board-row" key={r}>
