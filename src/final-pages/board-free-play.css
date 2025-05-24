@@ -492,3 +492,105 @@
   border-color: #fff;
 }
 
+.screenshot-loading-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+.screenshot-loading-spinner {
+  border: 6px solid #eee;
+  border-top: 6px solid #043805;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: screenshot-spin 1s linear infinite;
+  margin-bottom: 18px;
+}
+@keyframes screenshot-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.screenshot-loading-text {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #000a;
+}
+.youtube-placeholder {
+  width: 100%;
+  min-height: 60px;
+  min-width: 180px;
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  border-radius: 1rem;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px dashed #fff3;
+}
+
+.bg-fpb {
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+/* Animated background effect for all backgrounds except default stars */
+.bg1::before, .bg2::before, .bg3::before, .bg4::before, .bg5::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 200vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 100vw 100vh;
+  background-position: 0 0;
+  animation: bg-scroll-horizontal 40s linear infinite;
+  opacity: 0.38;
+}
+.bg1::before {
+  background-image: none !important;
+}
+.bg2::before {
+  background-image: url('/assets/night.jpg'), url('/assets/night.jpg');
+}
+.bg3::before {
+  background-image: url('/assets/fire.jpeg'), url('/assets/bg3.jpg');
+}
+.bg4::before {
+  background-image: url('/assets/cshop.jpg'), url('/assets/bg4.jpg');
+}
+.bg5::before {
+  background-image: url('/assets/snow.jpg'), url('/assets/bg5.jpg');
+}
+@keyframes bg-scroll-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100vw); }
+}
+
+/* Remove static background from .bg1, .bg2, .bg3, .bg4, .bg5 so only animated ::before is visible */
+.bg1, .bg2, .bg3, .bg4, .bg5 {
+  background: transparent !important;
+}
+
+.quick-cell.active-bg-btn {
+  background: linear-gradient(135deg, #b80000 90%, #7a0000 100%) !important;
+  color: #fff !important;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px #b8000040;
+}
+

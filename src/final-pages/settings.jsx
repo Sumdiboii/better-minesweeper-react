@@ -20,7 +20,7 @@ const Settings = () => {
               <div className="pic-box-settings"><img src='assets/ghiblisumdiboii.png'></img></div>
               <div className="socials-box-sp-settings">
   <a
-    href="https://www.linkedin.com/in/SumedhPimplikar"
+    href="https://www.linkedin.com/in/sumedh-pimplikar"
     target="_blank"
     rel="noopener noreferrer"
     className="icon-link-settings"
@@ -28,7 +28,7 @@ const Settings = () => {
     <i className="fab fa-linkedin-in"></i>
   </a>
   <a
-    href="https://wa.me/YOUR-NUMBER"
+    href="https://wa.me/919922391450"
     target="_blank"
     rel="noopener noreferrer"
     className="icon-link-settings"

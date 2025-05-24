@@ -12,7 +12,7 @@
   justify-content: stretch;
   box-sizing: border-box;
   /* Remove any centering that could prevent stretching */
-  background-color: red;
+  background-color: transparent;
 }
 
 .board-grid {

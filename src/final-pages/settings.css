@@ -202,14 +202,14 @@ width:100%;
 
 @media screen and (max-width: 1028px) {
   .top-cont1-settings img {
-    width: 270px;
+    width: 170px;
   }
 
 }
 @media screen and (max-width: 1024px) {
-  .leftcontbox-settings {
+  /* .leftcontbox-settings {
     display: none;
-  }
+  } */
 
   .rightcontbox-settings {
     flex: 1 !important; /* stretch and shine */
